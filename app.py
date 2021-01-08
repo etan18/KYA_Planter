@@ -1,20 +1,20 @@
 import NumPy
 import clr
-import System
+import sys
 from kivy.app import App
 from kivy.uix.scatter import Scatter
 from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
 
-fburl = string(input("Enter Firebase Database URL"))
+#fburl = string(input("Enter Firebase Database URL"))
+print ("1 = Aster")
+print ("2 = Iris")
+print ("3 = Marsh Marigold")
 
- print ("1 = Aster")
- print ("2 = Iris")
- print ("3 = Marsh Marigold")
 
- plantype = int(input("Choose Plant Type: "))
- print("You chose ")
- if (plantype == 1):
+plantype = int(input("Choose Plant Type: "))
+print("You chose ")
+if (plantype == 1):
      {
      print("Aster")
      int x = .3
