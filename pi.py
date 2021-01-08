@@ -17,19 +17,15 @@ firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
 
 #GPIO SETUP
-r1 = 4
-r2 = 5
-r3 = 6
-r4 = 7
-r5 = 8
-r6 = 9
+r1 = 5
+r2 = 6
+r3 = 7
+r4 = 8
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(r1, GPIO.IN)
 GPIO.setup(r2, GPIO.IN)
 GPIO.setup(r3, GPIO.IN)
 GPIO.setup(r4, GPIO.IN)
-GPIO.setup(r5, GPIO.IN)
-GPIO.setup(r6, GPIO.IN)
 
 valve_open = False
 
@@ -55,6 +51,4 @@ while True:
             alert = True
     if alert:
         waterPlant(threshold);
-
-
     sleep(5)

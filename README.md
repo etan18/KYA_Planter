@@ -33,3 +33,11 @@ pyinstaller --onefile <file_name>.py
 21.
 22.
 23.
+24. GPIO8, soil moisture sensor msb (bit3)
+25.
+26. GPIO7, soil moisture sensor bit2
+27.
+28.
+29. GPIO5, soil moisture sensor lsb (bit0)
+30.
+31. GPIO6, soil moisture sensor bit1
