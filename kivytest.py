@@ -1,9 +1,9 @@
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.image import Image
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.image import AsyncImage
-from kivy.uix.behaviors import ButtonBehavior
+#from kivy.uix.boxlayout import BoxLayout
+#from kivy.uix.image import AsyncImage
+#from kivy.uix.behaviors import ButtonBehavior
 
 class MainApp(App):
     def build(self):
