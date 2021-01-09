@@ -1,4 +1,4 @@
-import NumPy
+import numpy as np
 import clr
 import sys
 from kivy.app import App
@@ -15,19 +15,13 @@ print ("3 = Marsh Marigold")
 type = int(input("Choose Plant Type: "))
 print("You chose ")
 if (type == 1):
-     {
      print("Aster")
      num = .3
-     }
 if (type == 2):
-    {
     print("Iris")
     num = .5
-    }
 if (type == 3):
-    {
     print("Marsh Marigold")
     num = .7
-    }
 
-print("num = ") << print(num)
+print("num = " + str(num))
