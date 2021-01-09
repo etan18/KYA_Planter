@@ -28,3 +28,6 @@ if (type == 3):
 #Threshold just for demo
 print("num = ")
 print(num)
+
+if(level < 1)
+    print("Tank Refill Needed")
