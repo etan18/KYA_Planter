@@ -12,22 +12,22 @@ print ("2 = Iris")
 print ("3 = Marsh Marigold")
 
 
-plantype = int(input("Choose Plant Type: "))
+type = int(input("Choose Plant Type: "))
 print("You chose ")
-if (plantype == 1):
+if (type == 1):
      {
      print("Aster")
-     int x = .3
+     num = .3
      }
-if (plantype == 2):
+if (type == 2):
     {
     print("Iris")
-    int x = .5
+    num = .5
     }
-if (plantype == 3):
+if (type == 3):
     {
     print("Marsh Marigold")
-    int x = .7
+    num = .7
     }
 
-print("x = ") << print(x)
+print("num = ") << print(num)
