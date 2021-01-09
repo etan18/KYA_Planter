@@ -5,6 +5,7 @@ from kivy.app import App
 from kivy.uix.scatter import Scatter
 from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
+from setup import setup
 
 pid = str(input("Input Planter ID: "))
 
@@ -29,5 +30,6 @@ if (type == 3):
 print("num = ")
 print(num)
 
-if(level < 1)
-    print("Tank Refill Needed")
+setup(pid, num, type)
+#if(level < 1):
+    #print("Tank Refill Needed")
