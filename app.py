@@ -6,7 +6,8 @@ from kivy.uix.scatter import Scatter
 from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
 
-#fburl = string(input("Enter Firebase Database URL"))
+pid = str(input("Input Planter ID: "))
+
 print ("1 = Aster")
 print ("2 = Iris")
 print ("3 = Marsh Marigold")
