@@ -1,4 +1,4 @@
-import NumPy
+import numpy as np
 import clr
 import sys
 from kivy.app import App
@@ -17,7 +17,6 @@ print("You chose ")
 if (type == 1):
      print("Aster")
      num = .3
-
 if (type == 2):
     print("Iris")
     num = .5
