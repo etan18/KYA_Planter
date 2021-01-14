@@ -11,11 +11,11 @@ pyinstaller --onefile <file_name>.py
 ## Raspberry Pi Pins
 
 1.
-2.
+2. 5V to breadboard
 3.
-4.
+4. 5V to breadboard
 5.
-6.
+6. Ground to breadboard
 7.
 8.
 9.
@@ -28,16 +28,16 @@ pyinstaller --onefile <file_name>.py
 16.
 17.
 18.
-19.
+19. GPIO10(MOSI) -> MCP3008 Pin 11(DIN)
 20.
-21.
+21. GPIO9(MISO) -> MCP3008 Pin 12(DOUT)
 22.
-23.
-24. GPIO8, soil moisture sensor msb (bit3)
+23. GPIO11(SCLK) -> MCP3008 Pin 13(CLK)
+24. GPIO8(CEO) -> MCP3008 Pin 10(CS/SHDN)
 25.
-26. GPIO7, soil moisture sensor bit2
+26.
 27.
 28.
-29. GPIO5, soil moisture sensor lsb (bit0)
+29.
 30.
-31. GPIO6, soil moisture sensor bit1
+31.
