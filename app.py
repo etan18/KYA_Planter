@@ -18,13 +18,13 @@ type = int(input("Choose Plant Type: "))
 print("You chose ")
 if (type == 1):
      print("Aster")
-     num = .3
+     num = 700
 if (type == 2):
     print("Iris")
-    num = .5
+    num = 500
 if (type == 3):
     print("Marsh Marigold")
-    num = .7
+    num = 300
 
 #Threshold just for demo
 print("num = ")
