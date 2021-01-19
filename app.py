@@ -30,6 +30,6 @@ if (type == 3):
 print("num = ")
 print(num)
 
-setup(pid, num, type)
+setup("default", 1024, 0)
 #if(level < 1):
     #print("Tank Refill Needed")

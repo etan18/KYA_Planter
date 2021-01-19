@@ -11,8 +11,8 @@ from MCP3008 import MCP3008
 cred = credentials.Certificate('firebase-sdk.json')
 firebase_admin.initialize_app(cred, {'databaseURL':'https://kya-planter-default-rtdb.firebaseio.com/'})
 
-ref = db.reference('/planters/planter1/threshold')
-threshold = ref.get()
+thresh_ref = db.reference('/planters/planter1/threshold')
+threshold = thresh_ref.get()
 print("moisture threshold is set to " + str(threshold))
 
 alert = False
@@ -20,6 +20,8 @@ adc = MCP3008()
 
 while True:
     moisture = adc.read(channel = 0)
+    soil_ref = db.reference('/planters/planter1/moisture')
+    soil_ref.update(moisture)
     #for MP2 demo use only - prints timestamp followed by sensor reading
     ct = datetime.datetime.now()
     print("current time:-", ct)

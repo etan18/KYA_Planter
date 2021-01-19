@@ -7,9 +7,7 @@ from kivy.uix.behaviors import ButtonBehavior
 
 class MainApp(App):
     def build(self):
-        img = AsyncImage(source='https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Faf%2F09%2F7f%2Faf097fe7649416b7f13dde2e597e0bae.jpg&imgrefurl=https%3A%2F%2Fin.pinterest.com%2Fpin%2F808255464344354810%2F&tbnid=57Qal4_6EUJimM&vet=12ahUKEwit2e7XgZDuAhVS3FkKHVjPCDkQMygCegUIARC2AQ..i&docid=0-qYbINFTv6HPM&w=1303&h=1301&q=smiley%20face&hl=en&ved=2ahUKEwit2e7XgZDuAhVS3FkKHVjPCDkQMygCegUIARC2AQ'),
-                    size_hint=(1, .5),
-                    pos_hint={'center_x':.5, 'center_y':.5})
+        img = AsyncImage(source='https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Faf%2F09%2F7f%2Faf097fe7649416b7f13dde2e597e0bae.jpg&imgrefurl=https%3A%2F%2Fin.pinterest.com%2Fpin%2F808255464344354810%2F&tbnid=57Qal4_6EUJimM&vet=12ahUKEwit2e7XgZDuAhVS3FkKHVjPCDkQMygCegUIARC2AQ..i&docid=0-qYbINFTv6HPM&w=1303&h=1301&q=smiley%20face&hl=en&ved=2ahUKEwit2e7XgZDuAhVS3FkKHVjPCDkQMygCegUIARC2AQ')
 
         return img
 
