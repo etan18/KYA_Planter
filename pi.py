@@ -20,19 +20,20 @@ def waterPlant(threshold):
     time.sleep(10)
     GPIO.output(VALVE_PIN, GPIO.LOW)
 
-def waterLevel():
+def waterLevel(ref):
     level = adc.read(channel = 1)
     print(level)
     if level < 30:
-        lev_ref.update(False)
+        ref.update({"refill":False})
         return False
     else:
-        lev_ref.update(True)
+        ref.update({"refill":True})
         return True
 
 if __name__ == "__main__":
     init()
-    lev_ref = db.reference('/planters/planter1/level alert')
+    ref = db.reference("/planters/planter1")
+    # lev_ref = db.reference('/planters/planter1/level alert')
     thresh_ref = db.reference('/planters/planter1/threshold')
 
     threshold = thresh_ref.get()
@@ -40,14 +41,14 @@ if __name__ == "__main__":
 
     alert = False
     adc = MCP3008()
-    soil_ref = db.reference('/planters/planter1/moisture')
+    # soil_ref = db.reference('/planters/planter1/moisture')
 
     while True:
         moisture = adc.read(channel = 0)
         print(moisture)
-        soil_ref.update(moisture)
+        ref.update({"moisture":moisture})
 
-        if not waterLevel():
+        if not waterLevel(ref):
             if moisture <= threshold:
                 pass
             else:
