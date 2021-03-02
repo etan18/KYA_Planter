@@ -8,7 +8,7 @@ from MCP3008 import MCP3008
 def init():
     cred = credentials.Certificate('firebase-sdk.json')
     firebase_admin.initialize_app(cred, {'databaseURL':'https://kya-planter-default-rtdb.firebaseio.com/'})
-    lev_ref = db.reference('/planters/planter1/level alert')
+    lev_ref = db.reference('/planters/planter1/level_alert')
     adc = MCP3008()
 
 if __name__ == "__main__":

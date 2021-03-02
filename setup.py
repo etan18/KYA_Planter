@@ -48,7 +48,7 @@ ref.set({
                 "threshold": 1024,
                 "refill": True,
                 "moisture": 0
-                "level alert": True
+                "level_alert": True
             }
         }
 })
