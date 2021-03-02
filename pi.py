@@ -28,13 +28,10 @@ if __name__ == "__main__":
 
     alert = False
     adc = MCP3008()
-
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(VALVE_PIN, GPIO.OUT)
+    soil_ref = db.reference('/planters/planter1/moisture')
 
     while True:
         moisture = adc.read(channel = 0)
-        soil_ref = db.reference('/planters/planter1/moisture')
         soil_ref.update(moisture)
 
         if moisture <= threshold:
