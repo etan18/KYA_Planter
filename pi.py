@@ -19,7 +19,6 @@ def waterPlant(threshold):
     GPIO.output(VALVE_PIN, GPIO.HIGH)
     time.sleep(10)
     GPIO.output(VALVE_PIN, GPIO.LOW)
-    return
 
 def waterLevel():
     level = adc.read(channel = 1)
