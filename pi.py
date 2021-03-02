@@ -22,8 +22,8 @@ def waterPlant(threshold):
 
 def waterLevel(ref):
     level = adc.read(channel = 1)
-    print(level)
-    if level < 30:
+    print("current water level is " + level)
+    if level > 30:
         ref.update({"refill":False})
         return False
     else:
@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
     while True:
         moisture = adc.read(channel = 0)
-        print(moisture)
+        print("current moisture is " + moisture)
         ref.update({"moisture":moisture})
 
         if not waterLevel(ref):
