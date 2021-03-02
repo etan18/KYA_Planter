@@ -8,31 +8,42 @@ from firebase_admin import credentials
 from firebase_admin import db
 from MCP3008 import MCP3008
 
-cred = credentials.Certificate('firebase-sdk.json')
-firebase_admin.initialize_app(cred, {'databaseURL':'https://kya-planter-default-rtdb.firebaseio.com/'})
+VALVE_PIN = 7
 
-thresh_ref = db.reference('/planters/planter1/threshold')
-threshold = thresh_ref.get()
-print("moisture threshold is set to " + str(threshold))
+def waterPlant(threshold):
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(VALVE_PIN, GPIO.OUT)
+    GPIO.output(VALVE_PIN, GPIO.HIGH)
+    time.sleep(10)
+    GPIO.output(VALVE_PIN, GPIO.LOW)
+    return
 
-alert = False
-adc = MCP3008()
+if __name__ == "__main__":
+    cred = credentials.Certificate('firebase-sdk.json')
+    firebase_admin.initialize_app(cred, {'databaseURL':'https://kya-planter-default-rtdb.firebaseio.com/'})
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(VALVE_PIN, GPIO.OUT)
+    thresh_ref = db.reference('/planters/planter1/threshold')
+    threshold = thresh_ref.get()
+    print("moisture threshold is set to " + str(threshold))
 
-while True:
-    moisture = adc.read(channel = 0)
-    soil_ref = db.reference('/planters/planter1/moisture')
-    soil_ref.update(moisture)
+    alert = False
+    adc = MCP3008()
 
-    if moisture <= threshold:
-        pass
-    else:
-        alert = True
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(VALVE_PIN, GPIO.OUT)
 
-    if alert:
-        waterPlant(threshold)
-        alert = False
+    while True:
+        moisture = adc.read(channel = 0)
+        soil_ref = db.reference('/planters/planter1/moisture')
+        soil_ref.update(moisture)
 
-    time.sleep(5)
+        if moisture <= threshold:
+            pass
+        else:
+            alert = True
+
+        if alert:
+            waterPlant(threshold)
+            alert = False
+
+        time.sleep(5)
