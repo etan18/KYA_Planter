@@ -8,6 +8,17 @@ For GUI Programs, convert .py file to .exe file by running the following command
 pyinstaller --onefile <file_name>.py
 ```
 
+## Raspberry Pi Headless Setup
+Find local Raspberry Pi using the following command in Command Prompt/Terminal:
+```
+ping raspberrypi.local
+```
+Establish Secure Shell (SSH) network
+```
+ssh -v pi@[IP Adress]
+```
+Default Raspberry Pi Password is "raspberry"
+
 ## Raspberry Pi Pins
 
 1.

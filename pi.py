@@ -2,7 +2,7 @@
 import RPi.GPIO as GPIO
 import time
 import datetime
-from valve import waterPlant
+import valve
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
@@ -18,14 +18,13 @@ print("moisture threshold is set to " + str(threshold))
 alert = False
 adc = MCP3008()
 
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(VALVE_PIN, GPIO.OUT)
+
 while True:
     moisture = adc.read(channel = 0)
     soil_ref = db.reference('/planters/planter1/moisture')
     soil_ref.update(moisture)
-    #for MP2 demo use only - prints timestamp followed by sensor reading
-    ct = datetime.datetime.now()
-    print("current time:-", ct)
-    print("current moisture level is " + str(moisture))
 
     if moisture <= threshold:
         pass

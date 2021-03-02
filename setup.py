@@ -47,7 +47,7 @@ ref.set({
                 "type": 0,
                 "threshold": 1024,
                 "refill": True,
-                "moisture": 1024
+                "moisture": 0
             }
         }
 })
