@@ -14,6 +14,7 @@ def init():
     firebase_admin.initialize_app(cred, {'databaseURL':'https://kya-planter-default-rtdb.firebaseio.com/'})
 
 def waterPlant(threshold):
+    print("watering plant")
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(VALVE_PIN, GPIO.OUT)
     GPIO.output(VALVE_PIN, GPIO.HIGH)
@@ -23,7 +24,7 @@ def waterPlant(threshold):
 def waterLevel(ref):
     level = adc.read(channel = 1)
     print("current water level is " + str(level))
-    if level > 30:
+    if level > 40:
         ref.update({"refill":False})
         return False
     else:
