@@ -31,6 +31,12 @@ def waterLevel(ref):
         ref.update({"refill":True})
         return True
 
+def soilMoisture(ref):
+    moisture = adc.read(channel = 0)
+    print("current moisture is " + str(moisture))
+    ref.update({"moisture":moisture})
+    return moisture
+
 if __name__ == "__main__":
     init()
     ref = db.reference("/planters/planter1")
@@ -45,17 +51,11 @@ if __name__ == "__main__":
     # soil_ref = db.reference('/planters/planter1/moisture')
 
     while True:
-        moisture = adc.read(channel = 0)
-        print("current moisture is " + str(moisture))
-        ref.update({"moisture":moisture})
 
-        if not waterLevel(ref):
-            if moisture <= threshold:
-                pass
-            else:
-                alert = True
-            if alert:
-                waterPlant(threshold)
-                alert = False
+        waterLevel(ref)
+        if soilMoisture(ref) <= threshold:
+            pass
+        else:
+            waterPlant(threshold)
 
         time.sleep(5)
