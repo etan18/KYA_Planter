@@ -6,6 +6,8 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 from MCP3008 import MCP3008
+from getkey import getkey
+from sys import exit
 
 VALVE_PIN = 7
 
@@ -52,7 +54,9 @@ if __name__ == "__main__":
     # soil_ref = db.reference('/planters/planter1/moisture')
 
     while True:
-
+        key_pressed = getkey(blocking=True)
+        if key_pressed == 'q':
+            exit()
         waterLevel(ref)
         if soilMoisture(ref) <= threshold:
             pass
@@ -60,3 +64,4 @@ if __name__ == "__main__":
             waterPlant(threshold)
 
         time.sleep(5)
+    GPIO.cleanup()
