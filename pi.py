@@ -6,7 +6,7 @@ from firebase_admin import db
 from MCP3008 import MCP3008
 from sys import exit
 
-VALVE_PIN = 7
+VALVE_PIN = 4
 
 def init():
     cred = credentials.Certificate('firebase-sdk.json')
