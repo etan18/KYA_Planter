@@ -1,12 +1,9 @@
 #!/usr/bin/python
 import RPi.GPIO as GPIO
-import time
-import datetime
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 from MCP3008 import MCP3008
-from getkey import getkey
 from sys import exit
 
 VALVE_PIN = 7
@@ -52,16 +49,16 @@ if __name__ == "__main__":
     alert = False
     adc = MCP3008()
     # soil_ref = db.reference('/planters/planter1/moisture')
+    try:
+        while True:
 
-    while True:
-        key_pressed = getkey(blocking=True)
-        if key_pressed == 'q':
-            exit()
-        waterLevel(ref)
-        if soilMoisture(ref) <= threshold:
-            pass
-        else:
-            waterPlant(threshold)
-
-        time.sleep(5)
+            waterLevel(ref)
+            if soilMoisture(ref) <= threshold:
+                pass
+            else:
+                waterPlant(threshold)
+            time.sleep(5)
+    except KeyboardInterrupt:
+        # Control-C causes KeyboardInterrupt
+        pass
     GPIO.cleanup()
