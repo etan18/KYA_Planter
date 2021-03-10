@@ -5,6 +5,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 from MCP3008 import MCP3008
 from sys import exit
+import time
 
 VALVE_PIN = 4
 
