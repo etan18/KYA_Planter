@@ -25,7 +25,7 @@ def waterLevel(ref):
     level = adc.read(channel = 1)
     print("current water level is " + str(level))
     ref.update({"level":level})
-    if level > 40:
+    if level > 3:
         ref.update({"refill":False})
         return False
     else:
@@ -58,7 +58,7 @@ if __name__ == "__main__":
                 pass
             else:
                 waterPlant(threshold)
-            time.sleep(5)
+            time.sleep(15)
     except KeyboardInterrupt:
         # Control-C causes KeyboardInterrupt
         pass
