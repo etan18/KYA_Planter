@@ -54,10 +54,10 @@ if __name__ == "__main__":
             if soilMoisture(ref) <= threshold:
                 pass
             else:
+                print("running else statement")
                 waterPlant()
                 time.sleep(15)
-            threshold = thresh_ref.get()
-            print("moisture threshold is set to " + str(threshold))
+
     except KeyboardInterrupt:
         # Control-C causes KeyboardInterrupt
         pass
