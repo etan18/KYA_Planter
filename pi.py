@@ -59,6 +59,7 @@ if __name__ == "__main__":
             else:
                 waterPlant(threshold)
             time.sleep(15)
+            threshold = thresh_ref.get()
     except KeyboardInterrupt:
         # Control-C causes KeyboardInterrupt
         pass
