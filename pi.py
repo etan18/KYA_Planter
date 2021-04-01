@@ -52,14 +52,14 @@ if __name__ == "__main__":
     # soil_ref = db.reference('/planters/planter1/moisture')
     try:
         while True:
-
+            threshold = thresh_ref.get()
             waterLevel(ref)
             if soilMoisture(ref) <= threshold:
                 pass
             else:
                 waterPlant(threshold)
             time.sleep(15)
-            threshold = thresh_ref.get()
+
     except KeyboardInterrupt:
         # Control-C causes KeyboardInterrupt
         pass
