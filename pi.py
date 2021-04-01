@@ -13,7 +13,7 @@ def init():
     cred = credentials.Certificate('firebase-sdk.json')
     firebase_admin.initialize_app(cred, {'databaseURL':'https://kya-planter-default-rtdb.firebaseio.com/'})
 
-def waterPlant(threshold):
+def waterPlant():
     print("watering plant")
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(VALVE_PIN, GPIO.OUT)
@@ -27,10 +27,8 @@ def waterLevel(ref):
     ref.update({"level":level})
     if level > 13:
         ref.update({"refill":False})
-        return False
     else:
         ref.update({"refill":True})
-        return True
 
 def soilMoisture(ref):
     moisture = adc.read(channel = 0)
@@ -52,14 +50,14 @@ if __name__ == "__main__":
     # soil_ref = db.reference('/planters/planter1/moisture')
     try:
         while True:
-            threshold = thresh_ref.get()
             waterLevel(ref)
             if soilMoisture(ref) <= threshold:
                 pass
             else:
-                waterPlant(threshold)
-            time.sleep(15)
-
+                waterPlant()
+                time.sleep(15)
+            threshold = thresh_ref.get()
+            print("moisture threshold is set to " + str(threshold))
     except KeyboardInterrupt:
         # Control-C causes KeyboardInterrupt
         pass
