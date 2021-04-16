@@ -10,13 +10,15 @@ Application written by Erin Tan of the Middlesex County Academy for Science, Mat
 - Core program, contains all functions for planter function
 - Runs in forever loop
 
-## Make Applications Executable
+### Make Applications Executable
 For GUI Programs, convert .py file to .exe file by running the following command in Command Prompt/Terminal:
 ```
 pyinstaller --onefile <file_name>.py
 ```
 
-## Raspberry Pi Headless Setup
+## Hardware
+![circuit](/Users/ErinTan/Downloads/IMG_7376.jpg)
+### Raspberry Pi Headless Setup
 Find local Raspberry Pi using the following command in Command Prompt/Terminal:
 ```
 ping raspberrypi.local
@@ -26,7 +28,7 @@ Establish Secure Shell (SSH) network
 ssh -v pi@[IP Adress]
 ```
 
-## Raspberry Pi Pins
+### Raspberry Pi Pins
 
 19. GPIO10(MOSI) -> MCP3008 Pin 11(DIN)
 21. GPIO9(MISO) -> MCP3008 Pin 12(DOUT)
